@@ -1,27 +1,27 @@
-   # Node / React
-   node_modules/
-   frontend/dist/
-   frontend/.env
+# Node / React
+node_modules/
+frontend/dist/
+frontend/.env
 
-   # Java / Spring Boot
-   backend/target/
-   backend/.mvn/
-   *.class
+# Java / Spring Boot
+backend/target/
+backend/.mvn/
+*.class
 
-   # Python / FastAPI
-   ai-service/venv/
-   ai-service/__pycache__/
-   ai-service/*.pyc
-   ai-service/.env
+# Python / FastAPI
+ai-service/venv/
+ai-service/__pycache__/
+ai-service/*.pyc
+ai-service/.env
 
-   # IDE
-   .vscode/
-   .idea/
+# IDE
+.vscode/
+.idea/
 
-   # OS
-   .DS_Store
-   Thumbs.db
+# OS
+.DS_Store
+Thumbs.db
 
-   # Datasets / model weights (added properly in a later step)
-   ai-service/data/
-   ai-service/models/
+# Datasets / model weights (added properly in a later step)
+ai-service/data/
+ai-service/models/
