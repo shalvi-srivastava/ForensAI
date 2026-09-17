@@ -6,6 +6,7 @@ frontend/.env
 # Java / Spring Boot
 backend/target/
 backend/.mvn/
+backend/uploads/
 *.class
 
 # Python / FastAPI
