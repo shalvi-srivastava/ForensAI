@@ -93,17 +93,29 @@ function SketchConstructor({ caseId }) {
     }
   };
 
-  return (
+    return (
     <div>
-      <h3>Sketch Constructor</h3>
-      <canvas ref={canvasElRef} style={{ border: "1px solid black" }} />
-      <div>
-        <button onClick={handleClear}>Clear</button>
-        <button onClick={handleSubmit} disabled={uploading}>
+      <canvas ref={canvasElRef} className="border border-slate-300 rounded-md" />
+      <div className="mt-4 flex gap-3">
+        <button
+          onClick={handleClear}
+          className="bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium rounded-md px-4 py-2 transition-colors"
+        >
+          Clear
+        </button>
+        <button
+          onClick={handleSubmit}
+          disabled={uploading}
+          className="bg-slate-800 hover:bg-slate-900 disabled:bg-slate-400 text-white font-medium rounded-md px-4 py-2 transition-colors"
+        >
           {uploading ? "Uploading..." : "Submit Sketch"}
         </button>
       </div>
-      {status && <p>{status}</p>}
+      {status && (
+        <p className={`mt-3 text-sm ${status.startsWith("Upload failed") ? "text-red-600" : "text-green-700"}`}>
+          {status}
+        </p>
+      )}
     </div>
   );
 }
