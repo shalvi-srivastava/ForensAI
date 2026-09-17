@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
 
 function Login() {
@@ -7,8 +7,16 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [sessionExpiredMsg, setSessionExpiredMsg] = useState("");
 
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get("sessionExpired") === "true") {
+      setSessionExpiredMsg("Your session has expired. Please log in again.");
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,6 +47,7 @@ function Login() {
   return (
     <div>
       <h1>Login</h1>
+      {sessionExpiredMsg && <p style={{ color: "orange" }}>{sessionExpiredMsg}</p>}
       <form onSubmit={handleSubmit}>
         <div>
           <label>Username</label>

@@ -16,4 +16,20 @@ axiosInstance.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
+// Handle expired/invalid tokens globally
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      localStorage.removeItem("token");
+
+      if (window.location.pathname !== "/login") {
+        window.location.href = "/login?sessionExpired=true";
+      }
+    }
+
+    return Promise.reject(error);
+  }
+);
+
 export default axiosInstance;
