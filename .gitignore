@@ -14,6 +14,7 @@ ai-service/venv/
 ai-service/__pycache__/
 ai-service/*.pyc
 ai-service/.env
+ai-service/test_images/
 
 # IDE
 .vscode/
